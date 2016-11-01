@@ -1,0 +1,118 @@
+<div class="row card-container">
+  <ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-xs-12">
+    <p>Team Red</p>
+    <p>평균 레벨: {{avrLevelRed}}</p>
+    <p>평균 경쟁전 점수: {{avrSkillRatingRed}}</p>
+    <p>평균 승률: {{avrWinrateRed}}</p>
+
+  </ba-card>
+
+  <ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-xs-12">
+    <p>Team Blue</p>
+    <p>평균 레벨: {{avrLevelBlue}}</p>
+    <p>평균 경쟁전 점수: {{avrSkillRatingBlue}}</p>
+    <p>평균 승률: {{avrWinrateBlue}}</p>
+
+  </ba-card>
+</div>
+
+<div class='wrapper'>
+  <div class="row card-container">
+    <ba-card class="col-xlg-5 col-xl-5 col-lg-12 col-sm-12 col-xs-12">
+      <div *ngFor='let member of red' class="button-wrapper">
+        <button [class]="getStyleFor(member)" type="button" (click)="rmrModal.show()" (click)="setSelectedMember(member)">{{member.battleTag}}</button>
+      </div>
+    </ba-card>
+
+    <ba-card class="col-xlg-2 col-xl-2 col-lg-12 col-sm-12 col-xs-12">
+      </ba-card>
+
+    <ba-card class="col-xlg-5 col-xl-5 col-lg-12 col-sm-12 col-xs-12">
+      <div *ngFor='let member of blue' class="button-wrapper">
+        <button [class]="getStyleFor(member)" type="button" class="" (click)="rmbModal.show()" (click)="setSelectedMember(member)">{{member.battleTag}}</button>
+      </div>
+    </ba-card>
+
+    <ba-card class="col-xlg-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+      <div class="button-wrapper">
+        <button [class]="getStyleFor(member)" *ngFor='let member of moStats' type="button" class="" (click)="smModal.show()" (click)="setSelectedMember(member)">{{member.battleTag}}</button>
+      </div>
+    </ba-card>
+  </div>
+</div>
+
+<div class="row card-container">
+  <div class="row btns-row btns-same-width-lg">
+    <div class="col-sm-4 col-xs-6">
+      <button type="button" class="btn btn-primary btn-lg" (click)="updateClicked()">Update</button>
+    </div>
+  </div>
+</div>
+
+<!-- Small modal -->
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" aria-label="Close" (click)="smModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">{{selectedMember.battleTag}}</h4>
+      </div>
+      <div class="modal-body">
+        <p>레벨: {{selectedMember.level}}</p>
+        <p>경쟁전 점수: {{selectedMember.skillRating}}</p>
+        <p>승리: {{selectedMember.win}}</p>
+        <p>치른 게임: {{selectedMember.totalGames}}</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger confirm-btn" (click)="smModal.hide()" (click)="addTo('red')">Team Red</button>
+        <button class="btn btn-primary confirm-btn" (click)="smModal.hide()" (click)="addTo('blue')">Team Blue</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- remove modal -->
+<div bsModal #rmbModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" aria-label="Close" (click)="rmbModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">{{selectedMember.battleTag}}</h4>
+      </div>
+      <div class="modal-body">
+        DELETE? or Switch?
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger confirm-btn" (click)="rmbModal.hide()" (click)="removeFromBlue()">Remove</button>
+        <button class="btn btn-primary confirm-btn" (click)="rmbModal.hide()" (click)="moveToRed()">Move Blue -></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- remove modal -->
+<div bsModal #rmrModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" aria-label="Close" (click)="rmrModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">{{selectedMember.battleTag}}</h4>
+      </div>
+      <div class="modal-body">
+        DELETE? or Switch?
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger confirm-btn" (click)="rmrModal.hide()" (click)="removeFromRed()">Remove</button>
+        <button class="btn btn-primary confirm-btn" (click)="rmrModal.hide()" (click)="moveToBlue()"><- Move Red</button>
+      </div>
+    </div>
+  </div>
+</div>
+
