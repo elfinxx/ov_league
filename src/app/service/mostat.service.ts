@@ -8,11 +8,11 @@ export class MoStatService {
   constructor(private http:Http) {
   }
 
-  private melonaUrl = 'http://localhost:8092';
+  private owUrl = 'https://masteroverwatchbot-surplus-cite.d.9rum.cc';
 
   getStat(query):  Observable<MoStat>  {
     return this.http
-      .get(this.melonaUrl + "/ow/p/" + query)
+      .get(this.owUrl + "/ow/p/" + query)
       .map(this.extractData)
       .catch(this.handleError);
   }
