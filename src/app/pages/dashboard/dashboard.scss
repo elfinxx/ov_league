@@ -179,3 +179,19 @@ $btn-icon-size: 34px;
   text-align: center;
   margin: 5px 0;
 }
+
+
+.popular-app-cost {
+  font-size: 15px;
+  padding: 15px 18px;
+  border-bottom: 1px solid $border-light;
+  border-top: 0px solid $border-light;
+}
+
+.red-text {
+  color: $danger;
+}
+
+.green-text {
+  color: $success;
+}

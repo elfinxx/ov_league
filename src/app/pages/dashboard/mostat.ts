@@ -2,7 +2,7 @@ import {role} from "./role";
 export class MoStat {
   constructor(
     public battleTag: string,
-    public skillRating: string,
+    public skillRating: number,
     public level: number,
     public totalGames: number,
     public win: number,

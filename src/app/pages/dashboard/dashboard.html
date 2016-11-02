@@ -1,18 +1,70 @@
 <div class="row card-container">
   <ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-xs-12">
-    <p>Team Red</p>
-    <p>평균 레벨: {{avrLevelRed}}</p>
-    <p>평균 경쟁전 점수: {{avrSkillRatingRed}}</p>
-    <p>평균 승률: {{avrWinrateRed}}</p>
-
+    <div class="popular-app-cost row">
+      <div class="col-xs-9">
+        <h2>Team Red</h2>
+      </div>
+      <div class="col-xs-3 text-right">
+      </div>
+    </div>
+    <div class="popular-app-cost row">
+      <div class="col-xs-9">
+        평균 레벨
+      </div>
+      <div class="col-xs-3 text-right" [class.red-text] = "avrLevelBlue > avrLevelRed" [class.green-text] = "avrLevelBlue < avrLevelRed">
+        {{avrLevelRed | number}}
+      </div>
+    </div>
+    <div class="popular-app-cost row">
+      <div class="col-xs-9">
+        평균 경쟁전 점수
+      </div>
+      <div class="col-xs-3 text-right"  [class.red-text] = "avrSkillRatingBlue > avrSkillRatingRed" [class.green-text] = "avrSkillRatingBlue < avrSkillRatingRed">
+        {{avrSkillRatingRed | number}}
+      </div>
+    </div>
+    <div class="popular-app-cost row">
+      <div class="col-xs-9">
+        평균 승률
+      </div>
+      <div class="col-xs-3 text-right" [class.red-text] = "avrWinrateBlue > avrWinrateRed" [class.green-text] = "avrWinrateBlue < avrWinrateRed">
+        {{avrWinrateRed | percent}}
+      </div>
+    </div>
   </ba-card>
 
   <ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-xs-12">
-    <p>Team Blue</p>
-    <p>평균 레벨: {{avrLevelBlue}}</p>
-    <p>평균 경쟁전 점수: {{avrSkillRatingBlue}}</p>
-    <p>평균 승률: {{avrWinrateBlue}}</p>
-
+    <div class="popular-app-cost row">
+      <div class="col-xs-9">
+        <h2>Team Blue</h2>
+      </div>
+      <div class="col-xs-3 text-right">
+      </div>
+    </div>
+    <div class="popular-app-cost row">
+      <div class="col-xs-9">
+        평균 레벨
+      </div>
+      <div class="col-xs-3 text-right" [class.red-text] = "avrLevelBlue < avrLevelRed" [class.green-text] = "avrLevelBlue > avrLevelRed">
+        {{avrLevelBlue | number}}
+      </div>
+    </div>
+    <div class="popular-app-cost row">
+      <div class="col-xs-9">
+        평균 경쟁전 점수
+      </div>
+      <div class="col-xs-3 text-right"  [class.red-text] = "avrSkillRatingBlue < avrSkillRatingRed" [class.green-text] = "avrSkillRatingBlue > avrSkillRatingRed">
+        {{avrSkillRatingBlue | number}}
+      </div>
+    </div>
+    <div class="popular-app-cost row">
+      <div class="col-xs-9">
+        평균 승률
+      </div>
+      <div class="col-xs-3 text-right" [class.red-text] = "avrWinrateBlue < avrWinrateRed" [class.green-text] = "avrWinrateBlue > avrWinrateRed">
+        {{avrWinrateBlue | percent}}
+      </div>
+    </div>
   </ba-card>
 </div>
 
@@ -20,25 +72,56 @@
   <div class="row card-container">
     <ba-card class="col-xlg-5 col-xl-5 col-lg-12 col-sm-12 col-xs-12">
       <div *ngFor='let member of red' class="button-wrapper">
-        <button [class]="getStyleFor(member)" type="button" (click)="rmrModal.show()" (click)="setSelectedMember(member)">{{member.battleTag}}</button>
+        <button [class]="getStyleFor(member)" type="button" (click)="rmrModal.show()"
+                (click)="setSelectedMember(member)">{{member.battleTag}}
+        </button>
       </div>
     </ba-card>
 
     <ba-card class="col-xlg-2 col-xl-2 col-lg-12 col-sm-12 col-xs-12">
-      </ba-card>
+    </ba-card>
 
-    <ba-card class="col-xlg-5 col-xl-5 col-lg-12 col-sm-12 col-xs-12">
+    <ba-card class="col-xlg-5 col-xl-5 col-lg-12 col-sm-12 col-xs-12" >
       <div *ngFor='let member of blue' class="button-wrapper">
-        <button [class]="getStyleFor(member)" type="button" class="" (click)="rmbModal.show()" (click)="setSelectedMember(member)">{{member.battleTag}}</button>
+        <button [class]="getStyleFor(member)" type="button" class="" (click)="rmbModal.show()"
+                (click)="setSelectedMember(member)">{{member.battleTag}}
+        </button>
       </div>
     </ba-card>
 
-    <ba-card class="col-xlg-12 col-xl-12 col-lg-12 col-sm-12 col-xs-12">
+    <ba-card class="col-xlg-8 col-xl-8 col-lg-8 col-sm-8 col-xs-8" title="Kakao Krew">
       <div class="button-wrapper">
-        <button [class]="getStyleFor(member)" *ngFor='let member of moStats' type="button" class="" (click)="smModal.show()" (click)="setSelectedMember(member)">{{member.battleTag}}</button>
+        <button [class]="getStyleFor(member)" *ngFor='let member of moStats' type="button" class=""
+                (click)="smModal.show()" (click)="setSelectedMember(member)">{{member.battleTag}}
+        </button>
+      </div>
+    </ba-card>
+
+    <ba-card class="col-xlg-4 col-xl-4 col-lg-4 col-sm-4 col-xs-4" title="The Others">
+      <div class="button-wrapper">
+        <button [class]="getStyleFor(member)" *ngFor='let member of exMoStats' type="button" class=""
+                (click)="smModal.show()" (click)="setSelectedMember(member)">{{member.battleTag}}
+        </button>
       </div>
     </ba-card>
   </div>
+</div>
+
+<div class="row">
+  <ba-card class="col-xlg-5 col-xl-5 col-lg-12 col-sm-12 col-xs-12">
+    <div class="button-wrapper">
+      <button type="button" class="btn btn-primary">Tank</button>
+    </div>
+    <div class="button-wrapper">
+      <button type="button" class="btn btn-success">Support</button>
+    </div>
+    <div class="button-wrapper">
+      <button type="button" class="btn btn-warning">Defense</button>
+    </div>
+    <div class="button-wrapper">
+      <button type="button" class="btn btn-danger">Offense</button>
+    </div>
+  </ba-card>
 </div>
 
 <div class="row card-container">
@@ -49,8 +132,10 @@
   </div>
 </div>
 
+
 <!-- Small modal -->
-<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div bsModal #smModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -75,7 +160,8 @@
 
 
 <!-- remove modal -->
-<div bsModal #rmbModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div bsModal #rmbModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -89,14 +175,16 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger confirm-btn" (click)="rmbModal.hide()" (click)="removeFromBlue()">Remove</button>
-        <button class="btn btn-primary confirm-btn" (click)="rmbModal.hide()" (click)="moveToRed()">Move Blue -></button>
+        <button class="btn btn-primary confirm-btn" (click)="rmbModal.hide()" (click)="moveToRed()">Move Blue ->
+        </button>
       </div>
     </div>
   </div>
 </div>
 
 <!-- remove modal -->
-<div bsModal #rmrModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div bsModal #rmrModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
@@ -110,7 +198,8 @@
       </div>
       <div class="modal-footer">
         <button class="btn btn-danger confirm-btn" (click)="rmrModal.hide()" (click)="removeFromRed()">Remove</button>
-        <button class="btn btn-primary confirm-btn" (click)="rmrModal.hide()" (click)="moveToBlue()"><- Move Red</button>
+        <button class="btn btn-primary confirm-btn" (click)="rmrModal.hide()" (click)="moveToBlue()"><- Move Red
+        </button>
       </div>
     </div>
   </div>

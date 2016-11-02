@@ -6,7 +6,7 @@ export const PAGES_MENU = [
         path: 'dashboard',
         data: {
           menu: {
-            title: 'Inter League',
+            title: '호무라 밸런서',
             icon: 'ion-android-home',
             selected: false,
             expanded: false,
