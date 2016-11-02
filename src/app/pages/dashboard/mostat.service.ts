@@ -8,7 +8,7 @@ export class MoStatService {
   constructor(private http:Http) {
   }
 
-  private melonaUrl = 'http://172.26.36.201:8092';
+  private melonaUrl = 'http://localhost:8092';
 
   getStat(query):  Observable<MoStat>  {
     return this.http
