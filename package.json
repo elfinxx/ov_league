@@ -155,10 +155,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/akveo/ng2-admin.git"
+    "url": "git@github.daumkakao.com:bart-lee/ov_league.git"
   },
   "bugs": {
-    "url": "https://github.com/akveo/ng2-admin/issues"
+    "url": "https://github.daumkakao.com/bart-lee/ov_league/issues"
   },
   "engines": {
     "node": ">= 4.2.1",

@@ -13,12 +13,25 @@ export const PAGES_MENU = [
             order: 0
           }
         }
-      }, {
+      },
+      {
+        path: 'league',
+        data: {
+          menu: {
+            title: '사내 리그',
+            icon: 'ion-android-home',
+            selected: false,
+            expanded: false,
+            order: 0
+          }
+        }
+      },
+      {
         path: '',
         data: {
           menu: {
-            title: 'External Link',
-            url: 'http://akveo.com',
+            title: '동호회 아지트',
+            url: 'https://kakao.agit.in/g/300008837/wall',
             icon: 'ion-android-exit',
             order: 800,
             target: '_blank'

@@ -3,16 +3,14 @@ import { CommonModule }  from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgaModule } from '../../theme/nga.module';
 
-import { Dashboard } from './dashboard.component';
-import { routing }       from './dashboard.routing';
+import { League } from './league.component';
+import { routing }       from './league.routing';
 
 import { DropdownModule, ModalModule } from 'ng2-bootstrap/ng2-bootstrap';
-import {DragulaModule} from "ng2-dragula/ng2-dragula";
 import {MoStatService} from "../../service/mostat.service";
 
 @NgModule({
   imports: [
-    DragulaModule,
     CommonModule,
     FormsModule,
     NgaModule,
@@ -21,11 +19,10 @@ import {MoStatService} from "../../service/mostat.service";
     routing
   ],
   declarations: [
-    Dashboard
+    League
   ],
   providers: [
     MoStatService
-
   ]
 })
-export default class DashboardModule {}
+export default class LeagueModule {}

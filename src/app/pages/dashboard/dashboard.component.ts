@@ -1,7 +1,7 @@
 import {Component, ViewEncapsulation, OnInit} from "@angular/core";
-import {MoStatService} from "./mostat.service";
-import {MoStat} from "./mostat";
-import {role} from "./role";
+import {MoStatService} from "../../service/mostat.service";
+import {MoStat} from "../../service/domain/mostat";
+import {role} from "../../service/domain/role";
 
 @Component({
   selector: 'dashboard',

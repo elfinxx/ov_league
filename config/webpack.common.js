@@ -22,8 +22,8 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
  */
 const HMR = helpers.hasProcessFlag('hot');
 const METADATA = {
-  title: 'ng2-admin - Angular 2 Admin Template',
-  description: 'Free Angular 2 and Bootstrap 4 Admin Template',
+  title: '카카오 고급시계 동호회',
+  description: '고오급 시계에에 필요한 서비스들을 제공함',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
